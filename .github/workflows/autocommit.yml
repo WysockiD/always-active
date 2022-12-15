@@ -3,7 +3,7 @@ name: auto-commit
 on:
   push:
     branches:
-      - master
+      - main
 
   schedule:
     - cron: "0 9,17 * * *" # See https://crontab.guru/
