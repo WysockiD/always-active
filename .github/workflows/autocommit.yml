@@ -28,16 +28,16 @@ jobs:
           git config --local user.name "WysockiD"
           git add -A
 
-          arr[0]="commit(bot): 😂 auto commit"
-          arr[1]="commit(bot): 😱 auto commit"
-          arr[2]="commit(bot): 👿 auto commit"
-          arr[3]="commit(bot): 💩 auto commit"
-          arr[4]="commit(bot): 🙏 auto commit"
-          arr[5]="commit(bot): 🙈 auto commit"
-          arr[6]="commit(bot): 🐐 auto commit"
-          arr[7]="commit(bot): 🤖 auto commit"
+          arr[0]="commit(bot): 🐢 auto commit"
+          arr[1]="commit(bot): 🦖 auto commit"
+          arr[2]="commit(bot): 🐉 auto commit"
+          arr[3]="commit(bot): 🐸 auto commit"
+          arr[4]="commit(bot): 🦠 auto commit"
+          arr[5]="commit(bot): 🐊 auto commit"
+          arr[6]="commit(bot): 💚 auto commit"
+          arr[7]="commit(bot): 🌿 auto commit"
           arr[8]="commit(bot): 🟩 auto commit"
-          arr[9]="commit(bot): 👻 auto commit"
+          arr[9]="commit(bot): 🌵 auto commit"
 
           rand=$[$RANDOM % ${#arr[@]}]
 
