@@ -1,7 +1,6 @@
 # auto-commit
 
-Using [Github Actions](https://github.com/features/actions) to keep your tiles green
-
+Using [Github Actions](https://github.com/features/actions) to keep your tiles green! Auto commits at 9 and 5 every day! 🪴🥬 
 
 Create your own repo
 - Copy file `.github/workflows/autocommit.yml` and `LAST_UPDATED` to your repo
