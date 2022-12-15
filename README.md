@@ -1,4 +1,4 @@
-# auto-commit 🟩 🟩 🟩 🟩
+# Go Green 🟩 🟩 🟩 🟩
 
 Using [Github Actions](https://github.com/features/actions) to keep your tiles green! Auto commits at 9 and 5 every day! 🪴🥬
 
