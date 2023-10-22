@@ -1,11 +1,40 @@
 # Always active 🟩 🟩 🟩 🟩
 
-Using [Github Actions](https://github.com/features/actions) to keep your tiles green! Auto commits at 9 and 5 every day! 🪴🥬
+GitHub Actions Auto-Commit Workflow
+Automate your GitHub commits to keep your tiles green and active! This GitHub Actions workflow allows you to make automatic commits to your repository, adding a touch of green to your contributions graph.
 
-Create your own repo
-- Copy file `.github/workflows/autocommit.yml` and `LAST_UPDATED` to your repo
-- Change the `email` and `name` information on file [autocommit.yml, line 27 and 28](https://github.com/WysockiD/auto-commits/blob/main/.github/workflows/autocommit.yml#L27)
-- Change the scheduling time on file [autocommit.yml, line 9](https://github.com/WysockiD/auto-commits/blob/main/.github/workflows/autocommit.yml#L9). You can use [crontab.guru](https://crontab.guru/) if you are not familiar with the cron schedule string. For first time, you can try to run it in every hour with string `1 * * * *` (But once you set up and make any commit it will run right away, if it runs fine first time, it will run via your scheduling from then).
+Getting Started
+Follow these steps to set up the auto-commit workflow in your repository:
+
+Create your own repository on GitHub if you haven't already.
+
+Copy the following files to your repository:
+
+.github/workflows/autocommit.yml
+LAST_UPDATED
+Customize the email and name information in the autocommit.yml file:
+
+Replace "your-email@example.com" with your GitHub-associated email address.
+Replace "Your Name" with your GitHub username.
+Adjust the scheduling time in the autocommit.yml file (Line 9). You can use Crontab.guru to create a cron schedule string that fits your desired schedule.
+
+For example, to run the workflow every hour, you can set the schedule to "0 * * * *".
+
+Note: The first time you set up the workflow and make any commit, it will run immediately. After the initial setup, it will adhere to the specified schedule.
+
+That's it! The auto-commit workflow is now set up in your repository.
+
+Usage
+With this auto-commit workflow, your repository will automatically receive commits, ensuring that your contribution graph is active and green.
+
+Customization
+You can customize the commit messages and the schedule to meet your specific requirements. Feel free to modify the .github/workflows/autocommit.yml file to adjust the commit messages or the timing of the auto-commits.
+
+License
+This GitHub Actions Auto-Commit Workflow is open-source and available under the MIT License.
+
+Happy coding! 🌿🟩
+
 
 
 [Check it out in action!](https://github.com/WysockiD/auto-commits/actions)
