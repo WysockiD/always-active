@@ -5,52 +5,45 @@ on:
     branches:
       - main
 
-# Schedule the workflow to run every hour
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 9,17,18,19 * * *" # See https://crontab.guru/
 
 jobs:
   auto_commit:
     runs-on: ubuntu-latest
     steps:
-      - name: Check if it's time to commit
-        run: |
-          current_hour=$(date '+%H')
-          # Define your desired random intervals or conditions for committing
-          if [ $current_hour -ge 9 ] && [ $current_hour -le 18 ]; then
-            # Within the specified time range (e.g., from 9 AM to 6 PM)
-            if [ $(( RANDOM % 3 )) -eq 0 ]; then
-              echo "Committing..."
-              touch .commit_marker
-            else
-              echo "Not committing."
-            fi
-          else
-            # Outside the specified time range
-            if [ $(( RANDOM % 2 )) -eq 0 ]; then
-              echo "Committing..."
-              touch .commit_marker
-            else
-              echo "Not committing."
-            fi
-          fi
-        id: commit-check
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
 
-      - name: Commit if marked
-        if: steps.commit-check.outputs.commit-check == 'Committing...'
+      - name: Modify last update
         run: |
-          d=$(date '+%Y-%m-%dT%H:%M:%SZ')
+          d=`date '+%Y-%m-%dT%H:%M:%SZ'`
           echo $d > LAST_UPDATED
+
+      - name: Commit changes
+        run: |
           git config --local user.email "wysocki.dy@gmail.com"
           git config --local user.name "WysockiD"
           git add -A
-          arr=("commit(bot): 🐢 auto commit" "commit(bot): 🦖 auto commit" "commit(bot): 🐉 auto commit" "commit(bot): 🐸 auto commit" "commit(bot): 🦠 auto commit" "commit(bot): 🐊 auto commit" "commit(bot): 💚 auto commit" "commit(bot): 🌿 auto commit" "commit(bot): 🟩 auto commit" "commit(bot): 🌵 auto commit")
-          rand=$((RANDOM % ${#arr[@]}))
+
+          arr[0]="commit(bot): 🐢 auto commit"
+          arr[1]="commit(bot): 🦖 auto commit"
+          arr[2]="commit(bot): 🐉 auto commit"
+          arr[3]="commit(bot): 🐸 auto commit"
+          arr[4]="commit(bot): 🦠 auto commit"
+          arr[5]="commit(bot): 🐊 auto commit"
+          arr[6]="commit(bot): 💚 auto commit"
+          arr[7]="commit(bot): 🌿 auto commit"
+          arr[8]="commit(bot): 🟩 auto commit"
+          arr[9]="commit(bot): 🌵 auto commit"
+
+          rand=$[$RANDOM % ${#arr[@]}]
+
           git commit -m "${arr[$rand]}"
-          touch .commit_marker
 
       - name: GitHub Push
-        if: steps.commit-check.outputs.commit-check == 'Committing...'
         uses: ad-m/github-push-action@master
         with:
           force: true
